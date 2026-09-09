@@ -1,0 +1,18 @@
+# Build directories
+/build/
+/build-*/
+
+# Generated packages
+/*.deb
+/*.qsi
+/qsi_setup/deb_packages/
+/qsi_setup/output/
+/qsi_setup/qinstaller
+
+# Temporary / editor files
+/_LEGACY_orig/
+*~
+*.swp
+*.tmp
+.DS_Store
+.vscode/
