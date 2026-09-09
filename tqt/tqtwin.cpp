@@ -14,6 +14,7 @@
 #include <tqcursor.h>
 #include <tqstatusbar.h>
 #include <tqlabel.h>
+#include <tqpushbutton.h>
 
 #include <stdlib.h>
 #include <string.h>
@@ -1362,20 +1363,65 @@ void PuTTYSessionWindow::menuCopyAll()
     }
 }
 
-void PuTTYSessionWindow::menuAbout()
+void show_about_dialog(TQWidget *parent)
 {
+    TQDialog dlg(parent, "About PuTTY-TDE", true);
+    dlg.setCaption("About PuTTY-TDE");
+    dlg.setIcon(get_putty_icon());
+
+    TQVBoxLayout *mainLayout = new TQVBoxLayout(&dlg, 14, 12);
+
+    TQHBoxLayout *contentLayout = new TQHBoxLayout(mainLayout, 16);
+
+    // Left side: custom About image (100x110)
+    TQLabel *iconLabel = new TQLabel(&dlg);
+    iconLabel->setPixmap(get_about_puttytde_icon());
+    iconLabel->setAlignment(TQt::AlignTop | TQt::AlignHCenter);
+    contentLayout->addWidget(iconLabel, 0, TQt::AlignTop);
+
+    // Right side: version, build info, copyright
     char *buildinfo_text = buildinfo("\n");
-    TQString aboutText = TQString("PuTTY-TDE (TQt3 edition)\n%1\n\n%2\n\nCopyright 1997-2020 Simon Tatham\nAll rights reserved.")
-        .arg(ver)
-        .arg(buildinfo_text);
+    TQString infoHtml = TQString(buildinfo_text).replace("\n", "<br>");
     sfree(buildinfo_text);
 
-    TQMessageBox mb(this);
-    mb.setCaption("About PuTTY-TDE");
-    mb.setIconPixmap(get_putty_icon());
-    mb.setText(aboutText);
-    mb.setButtonText(TQMessageBox::Ok, "&Close");
-    mb.exec();
+    TQString aboutHtml = TQString(
+        "<p style='margin-bottom: 4px;'>"
+        "<b><font size='+1'>PuTTY-TDE</font></b><br>"
+        "<b>TQt3 Edition &bull; %1</b>"
+        "</p>"
+        "<p style='margin-top: 6px; margin-bottom: 8px; line-height: 130%;'>"
+        "%2"
+        "</p>"
+        "<p style='margin-top: 6px; color: #555555; font-size: 9pt;'>"
+        "Copyright &copy; 1997-2020 Simon Tatham<br>"
+        "All rights reserved."
+        "</p>"
+    ).arg(ver).arg(infoHtml);
+
+    TQLabel *textLabel = new TQLabel(&dlg);
+    textLabel->setTextFormat(TQt::RichText);
+    textLabel->setText(aboutHtml);
+    textLabel->setAlignment(TQt::AlignTop | TQt::AlignLeft);
+    contentLayout->addWidget(textLabel, 1);
+
+    mainLayout->addSpacing(4);
+
+    // Bottom action: Close button
+    TQHBoxLayout *btnLayout = new TQHBoxLayout(mainLayout, 8);
+    btnLayout->addStretch(1);
+    TQPushButton *btnClose = new TQPushButton("&Close", &dlg);
+    btnClose->setDefault(true);
+    btnClose->setMinimumWidth(80);
+    TQObject::connect(btnClose, TQ_SIGNAL(clicked()), &dlg, TQ_SLOT(accept()));
+    btnLayout->addWidget(btnClose);
+    btnLayout->addStretch(1);
+
+    dlg.exec();
+}
+
+void PuTTYSessionWindow::menuAbout()
+{
+    show_about_dialog(this);
 }
 
 void PuTTYSessionWindow::menuEventLog()

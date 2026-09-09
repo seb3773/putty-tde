@@ -49,6 +49,7 @@ def main():
     # Check icons
     puttycfg_png = os.path.join(icons_dir, "puttycfg.png")
     putty_png = os.path.join(icons_dir, "putty.png")
+    about_png = os.path.join(icons_dir, "about_puttytde.png")
 
     if os.path.isfile(puttycfg_png):
         header += process_file(puttycfg_png, "puttycfg")
@@ -59,6 +60,11 @@ def main():
         header += process_file(putty_png, "putty")
     else:
         print(f"Warning: {putty_png} not found")
+
+    if os.path.isfile(about_png):
+        header += process_file(about_png, "about_puttytde")
+    else:
+        print(f"Warning: {about_png} not found")
 
     header += """
 static inline TQPixmap get_puttycfg_icon()
@@ -73,6 +79,14 @@ static inline TQPixmap get_putty_icon()
 {
     TQImage img;
     if (img.loadFromData(putty_data, (int)putty_size, "PNG"))
+        return TQPixmap(img);
+    return TQPixmap();
+}
+
+static inline TQPixmap get_about_puttytde_icon()
+{
+    TQImage img;
+    if (img.loadFromData(about_puttytde_data, (int)about_puttytde_size, "PNG"))
         return TQPixmap(img);
     return TQPixmap();
 }

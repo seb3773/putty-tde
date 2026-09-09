@@ -10,6 +10,8 @@
 /qsi_setup/qinstaller
 
 # Temporary / editor files
+/.directory
+/konqiputty.png
 /_LEGACY_orig/
 *~
 *.swp

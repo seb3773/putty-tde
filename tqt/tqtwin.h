@@ -235,6 +235,8 @@ private:
     ConnState m_connState;
 };
 
+void show_about_dialog(TQWidget *parent);
+
 #ifdef __cplusplus
 extern "C" {
 #endif

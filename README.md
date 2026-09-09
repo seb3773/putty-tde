@@ -221,7 +221,7 @@ putty-tde/
 ├── build_deb.sh           # Native Debian (.deb) package generator
 ├── build_qsi.sh           # Q4OS Universal Installer (.qsi) generator
 ├── convert_images.py      # Asset compiler converting PNG icons to C byte arrays
-├── icons/                 # Raw application icon assets (putty.png, puttycfg.png)
+├── icons/                 # Raw application icon assets (putty.png, puttycfg.png, about_puttytde.png)
 ├── qsi_setup/             # Q4OS installer templates, resources, and hooks
 ├── tqt/                   # TQt3 Native Frontend implementation
 │   ├── putty_headers.h    # C++ namespace/macro isolation header for PuTTY C headers

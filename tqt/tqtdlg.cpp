@@ -103,6 +103,9 @@ PuTTYConfigDialog::PuTTYConfigDialog(TQWidget *parent, const char *title, Conf *
 
     // Bottom action buttons
     TQHBoxLayout *btnLayout = new TQHBoxLayout(mainLayout);
+    TQPushButton *btnAbout = new TQPushButton("&About", this);
+    btnAbout->setMinimumWidth(80);
+    btnLayout->addWidget(btnAbout);
     btnLayout->addStretch(1);
 
     TQPushButton *btnOpen = new TQPushButton(m_midsession ? "&Apply" : "&Open", this);
@@ -114,6 +117,7 @@ PuTTYConfigDialog::PuTTYConfigDialog(TQWidget *parent, const char *title, Conf *
     btnLayout->addWidget(btnOpen);
     btnLayout->addWidget(btnCancel);
 
+    connect(btnAbout, TQ_SIGNAL(clicked()), this, TQ_SLOT(onAboutClicked()));
     connect(btnOpen, TQ_SIGNAL(clicked()), this, TQ_SLOT(onOpenClicked()));
     connect(btnCancel, TQ_SIGNAL(clicked()), this, TQ_SLOT(onCancelClicked()));
     connect(m_categoryTree, TQ_SIGNAL(selectionChanged(TQListViewItem *)),
@@ -628,6 +632,11 @@ void PuTTYConfigDialog::onOpenClicked()
 void PuTTYConfigDialog::onCancelClicked()
 {
     reject();
+}
+
+void PuTTYConfigDialog::onAboutClicked()
+{
+    show_about_dialog(this);
 }
 
 void PuTTYConfigDialog::accept()

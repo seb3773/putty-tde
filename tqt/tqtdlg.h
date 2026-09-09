@@ -53,6 +53,7 @@ public slots:
     void onCategorySelected(TQListViewItem *item);
     void onOpenClicked();
     void onCancelClicked();
+    void onAboutClicked();
 
     void onButtonClicked();
     void onCheckBoxToggled(bool);
