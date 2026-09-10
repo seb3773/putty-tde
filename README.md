@@ -1,5 +1,9 @@
 # PuTTY-TDE
 
+<p align="center">
+  <img src="konqiputty.png" alt="PuTTY-TDE" width="300">
+</p>
+
 > **A native, lightweight, and modern TQt3 port of PuTTY for the Trinity Desktop Environment (TDE).**
 
 PuTTY-TDE is a complete and faithful port of the renowned **PuTTY (v0.74)** graphical client to **pure TQt3** (`libtqt-mt`). It provides a native, highly responsive, and feature-complete SSH, Telnet, Serial, and terminal emulator specifically crafted for **Trinity Desktop Environment (TDE)** and lightweight X11 environments, completely free of any GTK, GNOME, or KParts dependencies.
@@ -222,6 +226,7 @@ putty-tde/
 ├── build_qsi.sh           # Q4OS Universal Installer (.qsi) generator
 ├── convert_images.py      # Asset compiler converting PNG icons to C byte arrays
 ├── icons/                 # Raw application icon assets (putty.png, puttycfg.png, about_puttytde.png)
+├── konqiputty.png         # Project banner and mascot artwork
 ├── qsi_setup/             # Q4OS installer templates, resources, and hooks
 ├── tqt/                   # TQt3 Native Frontend implementation
 │   ├── putty_headers.h    # C++ namespace/macro isolation header for PuTTY C headers
