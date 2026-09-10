@@ -1,7 +1,7 @@
 # PuTTY-TDE
 
 <p align="center">
-  <img src="konqiputty.png" alt="PuTTY-TDE" width="300">
+  <img src="konqiputty.png" alt="PuTTY-TDE">
 </p>
 
 > **A native, lightweight, and modern TQt3 port of PuTTY for the Trinity Desktop Environment (TDE).**
