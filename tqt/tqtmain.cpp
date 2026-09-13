@@ -1,5 +1,6 @@
 #include <tqapplication.h>
 #include <locale.h>
+#include <stdlib.h>
 
 #include "tqtcomm.h"
 #include "tqtwin.h"
@@ -61,9 +62,16 @@ static bool do_cmdline(int argc, char **argv, bool do_everything, Conf *conf)
 
 int main(int argc, char **argv)
 {
+    // Force standard English locale across all components and standard dialogs
+    setenv("LC_ALL", "C.UTF-8", 1);
+    setenv("LC_MESSAGES", "C", 1);
+    setenv("LANGUAGE", "en_US:en", 1);
+    setenv("LANG", "C.UTF-8", 1);
+    setlocale(LC_ALL, "C.UTF-8");
+    setlocale(LC_CTYPE, "C.UTF-8");
+
     TQApplication app(argc, argv);
     TQObject::disconnect(&app, TQ_SIGNAL(lastWindowClosed()), &app, TQ_SLOT(quit()));
-    setlocale(LC_CTYPE, "");
 
     setup(true);
     tqtcomm_setup();

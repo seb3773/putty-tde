@@ -102,7 +102,7 @@ int tqt_seat_confirm_weak_crypto_primitive(
         "Continue with connection?").arg(type).arg(name);
 
     return (TQMessageBox::warning(0, "PuTTY-TDE Security Alert", msg,
-                                  TQMessageBox::Yes, TQMessageBox::No) == TQMessageBox::Yes) ? 1 : 0;
+                                  "&Yes", "&No", TQString::null, 0, 1) == 0) ? 1 : 0;
 }
 
 int tqt_seat_confirm_weak_cached_hostkey(
@@ -117,7 +117,7 @@ int tqt_seat_confirm_weak_cached_hostkey(
         "Continue with connection?").arg(type).arg(better_type);
 
     return (TQMessageBox::warning(0, "PuTTY-TDE Security Alert", msg,
-                                  TQMessageBox::Yes, TQMessageBox::No) == TQMessageBox::Yes) ? 1 : 0;
+                                  "&Yes", "&No", TQString::null, 0, 1) == 0) ? 1 : 0;
 }
 
 int tqt_seat_get_userpass_input(Seat *seat, prompts_t *p, bufchain *input)

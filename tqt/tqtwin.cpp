@@ -1177,9 +1177,12 @@ void PuTTYSessionWindow::closeEvent(TQCloseEvent *e)
             this,
             "PuTTY-TDE Exit Confirmation",
             "Are you sure you want to close this session?",
-            TQMessageBox::Yes | TQMessageBox::Default,
-            TQMessageBox::No | TQMessageBox::Escape);
-        if (ret != TQMessageBox::Yes) {
+            "&Yes",
+            "&No",
+            TQString::null,
+            0,
+            1);
+        if (ret != 0) {
             e->ignore();
             return;
         }
@@ -1236,7 +1239,8 @@ void PuTTYSessionWindow::startSession()
     if (error) {
         m_sessionActive = false;
         TQMessageBox::critical(this, "PuTTY-TDE Fatal Error",
-                              TQString("Unable to open connection:\n%1").arg(error));
+                               TQString("Unable to open connection:\n%1").arg(error),
+                               "&OK");
         sfree(error);
         close();
         return;
@@ -1862,7 +1866,7 @@ static void tqt_seat_notify_remote_exit(Seat *seat)
 static void tqt_seat_connection_fatal(Seat *seat, const char *message)
 {
     PuTTYTermWidget *w = GET_SEAT_INST(seat);
-    TQMessageBox::critical(w, "PuTTY-TDE Fatal Error", message);
+    TQMessageBox::critical(w, "PuTTY-TDE Fatal Error", message, "&OK");
     w->notifySessionClosed();
 }
 static void tqt_seat_update_specials_menu(Seat *seat) { (void)seat; }

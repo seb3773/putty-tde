@@ -836,7 +836,8 @@ void PuTTYConfigDialog::onFileBrowseClicked()
         TQtControlItem *item = findItem(ctrl);
         if (item && item->widget) {
             TQLineEdit *edit = (TQLineEdit*)item->widget;
-            TQString path = TQFileDialog::getOpenFileName(edit->text(), TQString::null, this);
+            TQString path = TQFileDialog::getOpenFileName(
+                edit->text(), TQString::null, this, "open_file_dialog", "Select File");
             if (!path.isEmpty()) {
                 edit->setText(path);
                 if (ctrl->generic.handler)
@@ -1077,7 +1078,7 @@ void dlg_beep(dlgparam *dp)
 
 void dlg_error_msg(dlgparam *dp, const char *msg)
 {
-    TQMessageBox::critical(dp->dialog, "PuTTY-TDE Error", msg);
+    TQMessageBox::critical(dp->dialog, "PuTTY-TDE Error", msg, "&OK");
 }
 
 void dlg_end(dlgparam *dp, int value)
