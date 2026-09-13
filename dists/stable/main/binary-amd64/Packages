@@ -1,0 +1,20 @@
+Package: putty-tde
+Version: 0.74-1
+Architecture: amd64
+Maintainer: seb3773
+Installed-Size: 1004
+Depends: libtqt3-mt-trinity (>= 4:14.0.0) | libtqt3-mt, libx11-6, libc6 (>= 2.15)
+Provides: putty
+Filename: pool/main/p/putty-tde/putty-tde_0.74-1_amd64.deb
+Size: 314420
+MD5sum: 991b34bd78a5be367e0ffbf63d52f0da
+SHA1: 9667c827b5ce4fc2f4058db80a549c0126391ffd
+SHA256: 54bca7120e29c242026ffc98bed91fa9d0061eb34dfff1710729d5b1b7c5117d
+Section: net
+Priority: optional
+Description: Lightweight SSH and Telnet client for Trinity Desktop Environment (TDE)
+ PuTTY-TDE is a native TQt3/TDE port of the popular PuTTY terminal emulator
+ and SSH client. It provides a lightweight, highly responsive, and robust
+ interface for SSH, Telnet, Serial, and Rlogin connections without any
+ GNOME or GTK dependencies.
+

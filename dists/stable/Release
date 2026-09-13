@@ -1,0 +1,24 @@
+Architectures: amd64
+Codename: stable
+Components: main
+Date: Sun, 13 Sep 2026 14:26:31 +0000
+Description: APT Repository for PuTTY-TDE (Trinity Desktop & Linux)
+Label: PuTTY-TDE APT Repository
+Origin: PuTTY-TDE
+Suite: stable
+MD5Sum:
+ bc4d3e100e26ae8a1ff87bfe67c46df3              225 Release
+ f88798d6850121833c442dac2a3670ec              794 main/binary-amd64/Packages
+ d8f1b2d9a099a5a952b71225c93e77c0              559 main/binary-amd64/Packages.gz
+SHA1:
+ 7eb85449563ad3c9e7d6712cd07b7d0fa4c2d1f7              225 Release
+ 5fb1fdb1b0fa7dac67a2857fb902ba09f1a3354a              794 main/binary-amd64/Packages
+ 82d1290ab9bac7f858adf35e940d05c80b3421aa              559 main/binary-amd64/Packages.gz
+SHA256:
+ 33cff7e4a8114ad18af152fba737c0328edc7f9647b294542c6a65dd4312f86b              225 Release
+ ea16fad5a9251b8724c9e7fefa9c2b7292b9e4b41e89f5d4cd0d0ce7e3ced2a6              794 main/binary-amd64/Packages
+ 7b16d5dd6440674435cff6db94a0a96b7a34c8d27a61291cba593a040359fbad              559 main/binary-amd64/Packages.gz
+SHA512:
+ 0c2285b6ba33afbc3ff6ded4c540a3bc6c754dd3d4223f96cd93edc7d5e3a5d7f5934112b775c8021bcf56b8b4f6c6851b96653642f95f9efead00da2a804ca2              225 Release
+ df615591361f4ad54aa04de8dc0ce3a2f2a93a51e1a87180155797e4305329abadd43fa5343791c576e8b655c47ea7e4bdd33f04626e5f8d9a3027722320b4a3              794 main/binary-amd64/Packages
+ 00e92c064ca880e88a18a3bbe98d91ff12e8e0e2b445e0a46282f7aa984f2089141f9f0202d1db47c9e16b46558ec82643a6223b6df1093360c02a859cc08525              559 main/binary-amd64/Packages.gz
