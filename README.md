@@ -125,6 +125,33 @@ Access the complete upstream menu tree at any time:
 
 ---
 
+## 📥 Installation & Packages
+
+### Method 1: APT Repository (Recommended for Automated Updates)
+
+To add the official repository and receive regular automatic updates on Debian, Q4OS, Ubuntu, Devuan, and derivatives:
+
+```bash
+echo "deb [trusted=yes] https://seb3773.github.io/putty-tde/ stable main" | sudo tee /etc/apt/sources.list.d/putty-tde.list
+sudo apt update
+sudo apt install putty-tde
+```
+
+### Method 2: Q4OS 1-Click Installer (`.qsi`)
+
+Download and run `setup_putty-tde_0.74-1.qsi` (or double-click it in the file manager).
+*The Q4OS installer automatically configures the APT repository during setup for seamless future updates.*
+
+### Method 3: Direct Debian Package (`.deb`)
+
+Download `putty-tde_0.74-1_amd64.deb` from [Releases](https://github.com/seb3773/putty-tde/releases) or the [APT Repository Webpage](https://seb3773.github.io/putty-tde/) and install via apt:
+
+```bash
+sudo apt install ./putty-tde_0.74-1_amd64.deb
+```
+
+---
+
 ## 📦 Building from Source
 
 ### Prerequisites
@@ -160,11 +187,17 @@ To simplify building and packaging, automated scripts are provided:
   ```
   Builds `setup_putty-tde_0.74-1.qsi` with GUI wizard (welcome screen, license, installation progress, and desktop/menu registration). Requires `q4os-devpack-base`.
 
+* **Update APT Repository & Webpage (GitHub Pages)**:
+  ```bash
+  ./update_apt_repo.sh
+  ```
+  Synchronizes `.deb` and `.qsi` packages, builds APT index manifests (`Packages.gz`, `Release`), generates the modern web portal, and deploys directly to the `gh-pages` branch.
+
 ### Manual Compilation
 
 1. Clone or extract the repository:
    ```bash
-   git clone https://github.com/your-repo/putty-tde.git
+   git clone https://github.com/seb3773/putty-tde.git
    cd putty-tde
    ```
 
